@@ -59,3 +59,11 @@ The repository is local and has not yet been published.
 - Records showed provider_failed followed by blocked, with exactly
   one mock-provider call and zero remaining requests.
 - No network requests or Meta allowance changes occurred.
+
+## Combined offline evaluation — October 28
+- Added one evaluation command covering success followed by exhaustion,
+  and timeout followed by a blocked retry.
+- Both scenarios passed with one mock-provider call each.
+- The command emits structured JSON and exits unsuccessfully if
+  either scenario fails its checks.
+- No network requests or Meta allowance changes occurred.
