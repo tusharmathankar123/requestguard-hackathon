@@ -35,3 +35,10 @@ The repository is local and has not yet been published.
   without automatic retries.
 - Verification: all eleven tests passed locally.
 - No external API calls were made.
+
+## Offline demonstration milestone — October 28
+- Added a repeatable demonstration using temporary allowance storage.
+- Verified one allowed request and one exhausted request blocked
+  before provider dispatch, with exactly one mock-provider call.
+- The demonstration makes no network requests and does not modify
+  the earlier AgentGuard allowance.
