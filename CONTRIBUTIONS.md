@@ -27,3 +27,11 @@ The repository is local and has not yet been published.
 - Verification: seven tests passed locally.
 - No provider calls were made during this milestone.
 - This component limits request counts; it does not enforce a dollar cap.
+
+## Guarded dispatch milestone — October 28
+- Added a provider wrapper that reserves a slot before dispatch.
+- Added four mock-provider tests proving that disabled or exhausted
+  requests never reach the provider, and failures consume their slot
+  without automatic retries.
+- Verification: all eleven tests passed locally.
+- No external API calls were made.
