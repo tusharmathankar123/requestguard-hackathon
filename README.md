@@ -30,7 +30,7 @@ Run commands from the repository root.
 
     python3 -m unittest discover -s tests -v
 
-Current verification: 18 tests passed locally.
+Current verification: 32 tests passed locally.
 
 ## Run the combined evaluation
 
@@ -72,7 +72,7 @@ Records are not a persistent or tamper-evident audit trail.
 - REQUESTGUARD_LIVE_ENABLED must equal YES to permit guarded dispatch.
 - REQUESTGUARD_DATA_DIR selects the persistent allowance location.
 - Failed attempts consume a slot even when provider usage is unknown.
-- The Meta adapter is verified with mocked HTTP responses; live integration in this repository remains unverified.
+- The Meta adapter has mocked HTTP coverage and one successful live Muse Wonder verification.
 - Baseten is not integrated.
 - Earlier live Meta testing used the excluded AgentGuard application;
   it does not establish live integration for this project.
@@ -81,3 +81,22 @@ Records are not a persistent or tamper-evident audit trail.
 
 Never commit API keys, environment files or local allowance databases.
 The offline demonstrations require no credentials.
+
+## Live verification evidence
+
+On October 28 at 23:52 UTC, this standalone project completed one
+Muse Wonder request through guarded dispatch.
+
+- Provider-reported usage: 14 input, 31 output, 45 total tokens.
+- Recorded duration: 1143.24 ms.
+- The persistent one-request allowance was exhausted.
+- A subsequent command stopped before prompting for a key or
+  dispatching another provider request.
+
+This verifies one live request and local blocking after exhaustion.
+It does not establish a dollar spending cap or broad model accuracy.
+The response wording was not asserted.
+
+The live-check command requires explicit --run activation and an
+existing unused one-slot allowance. Do not delete or reset an
+exhausted ledger to repeat the check.

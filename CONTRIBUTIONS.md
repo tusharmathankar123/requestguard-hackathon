@@ -92,3 +92,12 @@ The repository is local and has not yet been published.
 - Recorded duration: 1143.24 ms.
 - Persistent allowance changed from one available slot to zero.
 - Response wording was not asserted; no live second attempt was made.
+
+## Live-check safety verification
+- Added five offline tests for default mode, missing storage,
+  exhausted allowance, successful dispatch and provider failure.
+- Verified mode restoration and exclusion of credentials and
+  response text from live-check output.
+- All 32 tests passed.
+- Manually confirmed the exhausted live-check command stopped
+  before requesting a key or making another provider call.
