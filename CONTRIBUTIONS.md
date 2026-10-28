@@ -67,3 +67,10 @@ The repository is local and has not yet been published.
 - The command emits structured JSON and exits unsuccessfully if
   either scenario fails its checks.
 - No network requests or Meta allowance changes occurred.
+
+## Evaluator verification — October 28
+- Added four tests for evaluator results and exit codes.
+- Verified that deliberately bypassing dispatch protection inside
+  a test causes the evaluator to report failure.
+- Verification: all eighteen tests passed locally.
+- The bypass exists only in tests; no network requests were made.
