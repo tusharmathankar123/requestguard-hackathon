@@ -42,3 +42,12 @@ The repository is local and has not yet been published.
   before provider dispatch, with exactly one mock-provider call.
 - The demonstration makes no network requests and does not modify
   the earlier AgentGuard allowance.
+
+## Request records milestone — October 28
+- Added in-memory records containing request ID, UTC timestamp,
+  duration, outcome and available provider-reported token counts.
+- Records exclude request text, response text and raw error details.
+- Missing usage remains unknown rather than being recorded as zero.
+- Verification: fourteen tests passed; offline demo produced one
+  completed record and one blocked record with one provider call.
+- No external API calls were made.

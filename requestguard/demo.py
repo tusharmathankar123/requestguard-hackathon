@@ -1,5 +1,6 @@
 """Offline demonstration. No network requests or credentials."""
 
+import json
 import os
 import tempfile
 
@@ -18,6 +19,7 @@ def main():
             budget.initialize(1)
 
             calls = 0
+            records = []
 
             def mock_provider(request):
                 nonlocal calls
@@ -27,18 +29,20 @@ def main():
             print("OFFLINE DEMO — no API calls")
             print("Starting allowance:", budget.status())
 
-            result = guarded_call(mock_provider, {"text": "First request"})
+            result = guarded_call(mock_provider, {"text": "First request"}, records=records)
             print("Request 1: ALLOWED")
             print("Response:", result)
 
             try:
-                guarded_call(mock_provider, {"text": "Second request"})
+                guarded_call(mock_provider, {"text": "Second request"}, records=records)
             except budget.LiveBudgetError:
                 print("Request 2: BLOCKED before provider dispatch")
             else:
                 raise AssertionError("Exhausted request was not blocked")
 
             assert calls == 1, "Unexpected provider dispatch count"
+            print("Request records:")
+            print(json.dumps(records, indent=2))
             print("Mock provider calls:", calls)
             print("Final allowance:", budget.status())
             print("PASS — exhausted request never reached the provider")
