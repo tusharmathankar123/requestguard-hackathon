@@ -72,7 +72,8 @@ Records are not a persistent or tamper-evident audit trail.
 - REQUESTGUARD_LIVE_ENABLED must equal YES to permit guarded dispatch.
 - REQUESTGUARD_DATA_DIR selects the persistent allowance location.
 - Failed attempts consume a slot even when provider usage is unknown.
-- This repository does not yet integrate Meta or Baseten.
+- The Meta adapter is verified with mocked HTTP responses; live integration in this repository remains unverified.
+- Baseten is not integrated.
 - Earlier live Meta testing used the excluded AgentGuard application;
   it does not establish live integration for this project.
 
