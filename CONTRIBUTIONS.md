@@ -17,3 +17,13 @@ They have not yet been added to this repository.
 ## Verification status
 No runnable application or independently tested component exists here yet.
 The repository is local and has not yet been published.
+
+## Standalone safeguards milestone — October 28
+- Added the audited post-kickoff allowance module.
+- Replaced inherited application settings with REQUESTGUARD settings.
+- Added seven independent standard-library tests covering disabled mode,
+  exhaustion, restart persistence, reset prevention, concurrency,
+  missing storage and corrupt storage.
+- Verification: seven tests passed locally.
+- No provider calls were made during this milestone.
+- This component limits request counts; it does not enforce a dollar cap.
