@@ -83,3 +83,12 @@ The repository is local and has not yet been published.
 - Added mocked transport and guarded-integration tests.
 - Verification: all 27 tests passed locally.
 - No live inference was performed by this repository during this milestone.
+
+## First live Meta verification
+- October 28, 23:52 UTC: standalone RequestGuard completed one
+  Muse Wonder request through guarded dispatch.
+- Provider-reported usage: 14 input tokens, 31 output tokens,
+  45 total tokens.
+- Recorded duration: 1143.24 ms.
+- Persistent allowance changed from one available slot to zero.
+- Response wording was not asserted; no live second attempt was made.
