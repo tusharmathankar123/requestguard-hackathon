@@ -51,3 +51,11 @@ The repository is local and has not yet been published.
 - Verification: fourteen tests passed; offline demo produced one
   completed record and one blocked record with one provider call.
 - No external API calls were made.
+
+## Provider-failure demonstration — October 28
+- Added an offline timeout scenario using temporary allowance storage.
+- Verified that a failed provider attempt retains its consumed slot.
+- A subsequent attempt was blocked before dispatch.
+- Records showed provider_failed followed by blocked, with exactly
+  one mock-provider call and zero remaining requests.
+- No network requests or Meta allowance changes occurred.
