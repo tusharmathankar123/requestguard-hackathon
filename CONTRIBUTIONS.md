@@ -144,3 +144,15 @@ The repository is local and has not yet been published.
   React, Tailwind, Vite, FastAPI and testing dependencies.
 - No new paid inference calls were made. Live Meta Control Tower execution remains
   unverified; previous live evidence concerns the standalone RequestGuard check.
+
+## Live Control Tower verification — October 29
+- A Muse Wonder proposal passed through RequestGuard, independent
+  policy validation and simulated refund execution.
+- Result: SUCCEEDED with one unique €125 simulated receipt.
+- Balance and receipt committed together; no real funds moved.
+- Evidence chain verified.
+- Provider-reported usage: 116 input, 610 output, 726 total tokens.
+- Recorded model-call duration: 3929.474 ms.
+- Live request allowance was exhausted after the call.
+- This verifies one live automatic-refund workflow; live approval,
+  denial and clarification scenarios remain unverified.
