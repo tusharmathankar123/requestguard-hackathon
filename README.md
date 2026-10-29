@@ -259,3 +259,12 @@ excluded. The original database stays local and ignored. The summary describes
 verification performed against that source; it cannot independently reconstruct
 the redacted chains and is not externally signed. No model requests or allowance
 changes occur during export. All model-call token counts are provider-reported.
+
+## Demo video first cut
+
+[Watch or download the first-cut demo](demo/AgentGuard_Demo_First_Cut.mp4)
+
+Duration: 2 minutes 45.2 seconds. This is the approved edited recording,
+committed on October 29 as a first cut for review rather than a final submission.
+The screen demonstration uses offline fixtures; recorded live Meta evidence
+is presented separately.
