@@ -30,7 +30,7 @@ Run commands from the repository root.
 
     python3 -m unittest discover -s tests -v
 
-Current verification: 32 tests passed locally.
+Current verification: 36 tests passed locally.
 
 ## Run the combined evaluation
 
@@ -100,3 +100,20 @@ The response wording was not asserted.
 The live-check command requires explicit --run activation and an
 existing unused one-slot allowance. Do not delete or reset an
 exhausted ledger to repeat the check.
+
+## Offline dashboard
+
+    python3 -m requestguard.dashboard
+
+Open `local-data/dashboard.html` in a browser. The generated page is a
+self-contained snapshot of two fresh mock evaluations; scenario buttons
+inspect those results without making provider calls. Regenerate it to refresh.
+No server, API key or live allowance is needed. Existing live storage is
+unchanged. The separately labelled Meta figures are historical user-reported
+evidence from the earlier live check, not a live connection.
+
+The generated HTML stays in ignored local-data/. The source template and
+builder are included in the repository.
+
+Dashboard typography uses bundled Inter and IBM Plex Mono, embedded in the
+generated HTML. See requestguard/fonts/ for third-party font licenses.

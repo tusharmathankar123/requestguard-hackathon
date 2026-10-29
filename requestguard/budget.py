@@ -1,4 +1,5 @@
 """Persistent request allowance. This is not a provider billing or dollar cap."""
+from contextlib import closing
 import argparse
 import json
 import os
@@ -19,7 +20,7 @@ def initialize(limit=1):
     # Exclusive creation prevents accidentally resetting an existing allowance.
     fd = os.open(path, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
     os.close(fd)
-    with sqlite3.connect(path) as db:
+    with closing(sqlite3.connect(path)) as db, db:
         db.execute('CREATE TABLE budget (id INTEGER PRIMARY KEY CHECK(id=1), allowance INTEGER NOT NULL, used INTEGER NOT NULL)')
         db.execute('INSERT INTO budget VALUES (1, ?, 0)', (limit,))
     return status()
@@ -30,7 +31,7 @@ def connect():
 
 def status():
     try:
-        with connect() as db:
+        with closing(connect()) as db, db:
             row = db.execute('SELECT allowance, used FROM budget WHERE id=1').fetchone()
         if row is None or not 1 <= row[0] <= 20 or not 0 <= row[1] <= row[0]:
             raise LiveBudgetError('Invalid request allowance')
@@ -42,7 +43,7 @@ def reserve():
     if os.environ.get('REQUESTGUARD_LIVE_ENABLED') != 'YES':
         raise LiveBudgetError('Live requests disabled; explicit activation required')
     try:
-        with connect() as db:
+        with closing(connect()) as db, db:
             db.execute('BEGIN IMMEDIATE')
             changed = db.execute('UPDATE budget SET used=used+1 WHERE id=1 AND allowance BETWEEN 1 AND 20 AND used>=0 AND used<allowance').rowcount
             if changed != 1:

@@ -101,3 +101,20 @@ The repository is local and has not yet been published.
 - All 32 tests passed.
 - Manually confirmed the exhausted live-check command stopped
   before requesting a key or making another provider call.
+
+## Offline dashboard milestone
+- Added an original self-contained evaluation dashboard with scenario
+  selection, actual request records and explicit unknown mock token usage.
+- Labelled the earlier user-reported live Meta result as historical evidence.
+- Added four dashboard tests, including preservation of existing allowance
+  storage and escaping of embedded report data.
+- Closed SQLite connections after transactions to resolve resource warnings
+  observed on Python 3.14.
+- Verification: 36 offline tests passed; no live provider requests were made.
+
+## Dashboard visual refinement — October 29
+- Applied the selected midnight theme: navy surfaces, cyan selection, mint
+  completion, amber provider failures and neutral protected blocks.
+- Embedded Inter and IBM Plex Mono locally for offline rendering. These fonts
+  are third-party dependencies under their supplied SIL Open Font Licenses;
+  they are not claimed as original event contributions.

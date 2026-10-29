@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RequestGuard · Evaluation studio</title>
+<style>
+@font-face{font-family:Inter;src:url(data:font/ttf;base64,__INTER_FONT__) format("truetype");font-weight:100 900;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url(data:font/ttf;base64,__MONO_FONT__) format("truetype");font-weight:400;font-display:swap}
+:root{color-scheme:dark;--ink:#e8f0fa;--muted:#a4b3c8;--line:#2b3c55;--paper:#0b1220;--cyan:#38bdf8;--mint:#6ee7b7;--amber:#fbbf24;--card:#152238}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 15% 0%,#142a41 0,transparent 50%),var(--paper);color:var(--ink);font:15px/1.6 Inter,system-ui,sans-serif}header{border-bottom:1px solid var(--line);padding:20px 5%;display:flex;justify-content:space-between;align-items:center;gap:20px;background:#0b1220d9}.brand{font-weight:750;font-size:21px;letter-spacing:-.7px}.brand span{background:#133550;color:var(--cyan);border:1px solid #255675;border-radius:8px;padding:4px 8px;margin-right:9px}.pill{display:inline-block;border:1px solid #315573;background:#12283c;color:#b4e5fc;border-radius:30px;padding:6px 12px;font-size:12px;font-weight:600}.dot{color:var(--cyan)}main{max-width:1220px;margin:auto;padding:44px 30px}.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}h1{font-size:clamp(32px,4vw,52px);font-weight:700;line-height:1.12;letter-spacing:-1.8px;margin:14px 0}h2{font-size:22px;font-weight:650;letter-spacing:-.6px;margin:0 0 10px}p{margin:8px 0}.intro{max-width:690px;color:var(--muted);font-size:16px}.stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:15px;margin:30px 0;overflow:hidden;background:var(--card)}.stat{padding:21px;border-right:1px solid var(--line)}.stat:last-child{border:0}.value{font-size:30px;font-weight:650;letter-spacing:-1px;font-variant-numeric:tabular-nums}.stat:first-child .value{color:var(--mint)}.label{color:var(--muted);font-size:12px}.layout{display:grid;grid-template-columns:265px 1fr;gap:22px}.card{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:25px;box-shadow:0 8px 32px #00000012}.side{padding:20px}.scenario{width:100%;text-align:left;border:1px solid var(--line);background:#101c2e;border-radius:10px;padding:15px;margin-top:13px;color:var(--ink);cursor:pointer;font:inherit;transition:background .15s,border-color .15s}.scenario:hover{border-color:#50738e}.scenario[aria-pressed=true]{background:#10334b;color:#e5f6ff;border-color:var(--cyan);box-shadow:inset 3px 0 0 var(--cyan)}.scenario strong,.scenario small{display:block}.scenario strong{font-weight:650}.scenario small{margin-top:5px;color:var(--muted);font-size:12px}.scenario:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}.stamp{display:flex;justify-content:space-between;gap:20px;align-items:start}.badge{background:#123c32;color:var(--mint);border:1px solid #27614f;border-radius:6px;font-size:11px;white-space:nowrap;font-weight:700;padding:5px 10px}.badge.fail{background:#492b1c;color:#ffd5a1;border-color:#805b31}.flow{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:24px 0}.step{border:1px solid var(--line);background:#111e31;border-radius:10px;padding:19px}.stepnum{font:10px/1.6 "IBM Plex Mono",monospace;color:var(--muted);margin-bottom:17px}.outcome{font-size:22px;font-weight:650;letter-spacing:-.6px}.outcome.completed{color:var(--mint)}.outcome.provider_failed{color:var(--amber)}.outcome.blocked{color:#bfd0e5}.step p{color:var(--muted);font-size:13px}.step.blocked{background:#17283b;border-color:#395269}.ledger{background:#0c1b2d;border:1px solid #315573;color:var(--ink);border-radius:10px;display:flex;justify-content:space-between;padding:18px 20px;align-items:center}.ledger strong{font:500 28px "IBM Plex Mono",monospace;color:var(--cyan)}.records{margin-top:26px}.record{border-top:1px solid var(--line);padding:14px 0;display:grid;grid-template-columns:1.1fr .7fr 1fr;gap:10px;font:11px/1.6 "IBM Plex Mono",monospace}.record code{display:block;font:10px/1.7 "IBM Plex Mono",monospace;color:var(--muted);overflow-wrap:anywhere}.record strong{display:block;font:600 13px Inter,sans-serif;margin-bottom:5px}.recordhead{color:var(--muted);font-size:11px}.evidence{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:22px}.evidence .card{background:#101b2c}.tokens{display:flex;gap:25px;margin:18px 0}.tokens strong{font:400 25px "IBM Plex Mono",monospace;color:var(--cyan);display:block}.note{font-size:12px;color:var(--muted)}footer{margin-top:28px;border-top:1px solid var(--line);padding-top:18px;display:flex;justify-content:space-between;gap:20px;color:var(--muted);font:10px/1.7 "IBM Plex Mono",monospace}@media(max-width:760px){main{padding:25px 18px}.layout,.evidence{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.stat{border-bottom:1px solid var(--line)}.flow{grid-template-columns:1fr}header{padding:15px}.record{grid-template-columns:1fr 1fr}.record>:last-child{grid-column:1/-1}.stamp{flex-wrap:wrap}}
+</style>
+</head>
+<body>
+<header><div class="brand"><span>R/</span>RequestGuard</div><div class="pill"><span class="dot">●</span> Offline evaluation studio</div></header>
+<main>
+<div class="eyebrow">A boundary before every provider call</div>
+<h1>One allowance.<br>No unguarded retry.</h1>
+<p class="intro">Inspect what happens when an AI request succeeds—or times out. Both paths consume their slot before another attempt can reach the provider.</p>
+<div class="stats">
+ <div class="stat"><div class="value" id="suite">—</div><div class="label">Scenario checks</div></div>
+ <div class="stat"><div class="value">0</div><div class="label">External calls in this evaluation</div></div>
+ <div class="stat"><div class="value" id="dispatches">—</div><div class="label">Mock dispatches · both scenarios</div></div>
+ <div class="stat"><div class="value">1</div><div class="label">Request allowance per scenario</div></div>
+</div>
+<div class="layout">
+ <aside class="card side"><div class="eyebrow">Choose a scenario</div>
+ <button class="scenario" id="success" aria-pressed="true"><strong>01 · Successful response</strong><small>Complete → exhaust → block</small></button>
+ <button class="scenario" id="failure" aria-pressed="false"><strong>02 · Provider timeout</strong><small>Fail → retain slot → block</small></button>
+ <p class="note" style="margin-top:22px">These are fresh mock evaluations. Selecting a scenario inspects its results; it does not call Meta.</p></aside>
+ <section class="card" aria-live="polite"><div class="stamp"><div><div class="eyebrow">Dispatch protection</div><h2 id="title"></h2></div><span class="badge" id="badge"></span></div>
+ <div class="flow"><div class="step"><div class="stepnum">ATTEMPT 01 / SLOT RESERVED</div><div class="outcome" id="first"></div><p id="firstDescription"></p></div><div class="step blocked"><div class="stepnum">ATTEMPT 02 / NO SLOT AVAILABLE</div><div class="outcome blocked" id="second"></div><p>No additional dispatch is expected. The recorded outcome below must confirm the block.</p></div></div>
+ <div class="ledger"><div>Remaining request allowance<div style="font-size:11px;opacity:.7">Temporary ledger · this scenario only</div></div><strong id="remaining"></strong></div>
+ <div class="records"><div class="eyebrow">Observed request records</div><div id="records"></div></div>
+ </section>
+</div>
+<div class="evidence">
+ <section class="card"><div class="eyebrow">Historical live evidence · user-reported</div><h2>Muse Wonder · one completed call</h2><p class="note">28 October 2026 · 23:52 UTC · recorded earlier through this project's live check. These figures are historical, not a live connection or a result of this page.</p><div class="tokens"><div><strong>14</strong><span class="label">Input tokens</span></div><div><strong>31</strong><span class="label">Output tokens</span></div><div><strong>45</strong><span class="label">Total tokens</span></div></div><p class="note">1,143.24 ms recorded duration. Response wording was not asserted. Source: CONTRIBUTIONS.md.</p></section>
+ <section class="card"><div class="eyebrow">Know the boundary</div><h2>Request cap. Not a dollar cap.</h2><p class="note">Protection covers calls routed through the guarded wrapper. Direct calls or replacing allowance storage can bypass it. A timeout can still be billed by the provider.</p><p class="note">Mock token usage is unknown. Request records are in memory and are not a tamper-evident audit trail. No credential entry or live execution is available here.</p><p class="note">An AgentGuard prototype predated kickoff and is excluded. This standalone component, evaluator and interface are event work; see CONTRIBUTIONS.md.</p></section>
+</div>
+<footer><span>Generated snapshot · rerun python3 -m requestguard.dashboard to refresh</span><span id="generated"></span></footer>
+<noscript><p>JavaScript is required to inspect the embedded evaluation results.</p></noscript>
+</main>
+<script id="report" type="application/json">__REPORT_JSON__</script>
+<script>
+const report=JSON.parse(document.getElementById('report').textContent);
+const byId=id=>document.getElementById(id);
+byId('suite').textContent=report.passed?'PASS':'FAIL';
+byId('dispatches').textContent=report.scenarios.reduce((sum,s)=>sum+s.mock_provider_calls,0);
+byId('generated').textContent=report.generated_at;
+const labels={completed:'Completed',blocked:'Blocked',provider_failed:'Provider failed'};
+function show(index){
+ const s=report.scenarios[index];
+ byId('success').setAttribute('aria-pressed',index===0?'true':'false');
+ byId('failure').setAttribute('aria-pressed',index===1?'true':'false');
+ byId('title').textContent=index===0?'Success should not permit a second call':'A timeout should not refund the slot';
+ byId('badge').textContent=s.passed?'CHECK PASSED':'CHECK FAILED';
+ byId('badge').className='badge'+(s.passed?'':' fail');
+ byId('first').className='outcome '+(s.records[0]?.outcome||'');
+ byId('first').textContent=labels[s.records[0]?.outcome]||'No record';
+ byId('second').textContent=labels[s.records[1]?.outcome]||'No record';
+ byId('firstDescription').textContent=index===0?'The mock provider returned a response. Its reserved slot remains consumed.':'The mock provider raised a timeout. Its reserved slot remains consumed.';
+ byId('remaining').textContent=s.remaining;
+ byId('records').replaceChildren();
+ for(const r of s.records){
+  const row=document.createElement('div');row.className='record';
+  const left=document.createElement('div');const strong=document.createElement('strong');strong.textContent=labels[r.outcome]||r.outcome;left.append(strong);
+  const code=document.createElement('code');code.textContent=r.request_id;left.append(code);
+  const timing=document.createElement('div');timing.textContent=r.duration_ms+' ms';
+  const usage=document.createElement('div');usage.textContent=Object.keys(r.reported_usage).length?JSON.stringify(r.reported_usage):'Token usage: unknown (mock)';
+  row.append(left,timing,usage);byId('records').append(row);
+ }
+}
+byId('success').onclick=()=>show(0);byId('failure').onclick=()=>show(1);show(0);
+</script>
+</body></html>
