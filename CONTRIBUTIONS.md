@@ -128,3 +128,19 @@ The repository is local and has not yet been published.
 - Added four tests, including bypass detection and preservation of existing
   allowance storage and environment. All 40 tests passed offline.
 - No live inference or billing actions were performed.
+
+## New Control Tower vertical slice — October 29
+- Wrote new event-only policy, evidence store, proposal agent, orchestrator,
+  synthetic executor and FastAPI surface; no pre-kickoff CAOF source imported.
+- Added React/Tailwind Control Tower with workflows, approval queue,
+  policy outcomes, persistent ledger, token records and a decision trail.
+- Implemented bounded approval, hard denial and clarification, execution-time
+  balance/permission rechecks, unique simulated receipts and atomic settlement.
+- Added a labelled recovery checkpoint plus tests for actual process interruption,
+  rollback and restart recovery without automatic provider redispatch.
+- Added 25 Control Tower tests; all 65 tests passed offline. Built frontend and
+  exercised approval, recovery, denial and clarification through the browser.
+- Reused the already documented third-party fonts and installed normal open-source
+  React, Tailwind, Vite, FastAPI and testing dependencies.
+- No new paid inference calls were made. Live Meta Control Tower execution remains
+  unverified; previous live evidence concerns the standalone RequestGuard check.

@@ -11,3 +11,5 @@ __pycache__/
 .DS_Store
 
 local-data/
+node_modules/
+frontend/dist/
