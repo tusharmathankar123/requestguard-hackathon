@@ -30,7 +30,7 @@ Run commands from the repository root.
 
     python3 -m unittest discover -s tests -v
 
-Current verification: 36 tests passed locally.
+Current verification: 40 tests passed locally.
 
 ## Run the combined evaluation
 
@@ -117,3 +117,14 @@ builder are included in the repository.
 
 Dashboard typography uses bundled Inter and IBM Plex Mono, embedded in the
 generated HTML. See requestguard/fonts/ for third-party font licenses.
+
+## Controlled retry comparison
+
+    python3 -m requestguard.compare
+
+Both sides attempt three calls against the same always-timeout mock. An
+unguarded loop dispatches three times; a one-slot guarded loop dispatches
+once and blocks twice. The dashboard includes these observed counts. Neither
+side recovers the failed request. This is a controlled offline simulation,
+not a claim of actual monetary savings or a recommendation to retry blindly.
+Existing live allowance storage is unchanged.

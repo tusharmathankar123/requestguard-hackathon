@@ -118,3 +118,13 @@ The repository is local and has not yet been published.
 - Embedded Inter and IBM Plex Mono locally for offline rendering. These fonts
   are third-party dependencies under their supplied SIL Open Font Licenses;
   they are not claimed as original event contributions.
+
+## Offline retry comparison — October 29
+- Added a controlled three-attempt comparison using an always-timeout mock.
+- Observed three unguarded dispatches versus one guarded dispatch and two
+  locally blocked attempts; neither side recovers the request.
+- Integrated the comparison into the dashboard, labelled as simulated and
+  without claims of measured monetary savings.
+- Added four tests, including bypass detection and preservation of existing
+  allowance storage and environment. All 40 tests passed offline.
+- No live inference or billing actions were performed.

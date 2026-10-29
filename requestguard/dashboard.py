@@ -6,15 +6,18 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from .evaluate import evaluate_case
+from .compare import run_comparison
 
 
 def build_report():
     cases = [evaluate_case(), evaluate_case(fail=True)]
+    comparison = run_comparison()
     return {
         'generated_at': datetime.now(timezone.utc).isoformat(),
         'mode': 'offline_mock',
         'network_requests': 0,
-        'passed': all(case['passed'] for case in cases),
+        'passed': all(case['passed'] for case in cases) and comparison['passed'],
+        'comparison': comparison,
         'scenarios': cases,
     }
 
