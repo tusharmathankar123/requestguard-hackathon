@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-29T01:05:35.076248+00:00",
+  "evidence_type": "recorded_live_workflows",
+  "complete": true,
+  "scenario_checks": {
+    "automatic_125": true,
+    "human_approval_300": true,
+    "hard_denial_750": true,
+    "clarification": true
+  },
+  "workflows": [
+    {
+      "record": 1,
+      "scenario": "automatic_125",
+      "mode": "meta",
+      "status": "SUCCEEDED",
+      "evidence_verified": true,
+      "expected_outcome_verified": true,
+      "event_counts": {
+        "workflow_created": 1,
+        "model_call": 1,
+        "proposal_validated": 1,
+        "policy_evaluated": 1,
+        "execution_started": 1,
+        "tool_executed": 1
+      },
+      "receipt_count": 1,
+      "simulated_amount_eur": 125.0,
+      "model_calls": [
+        {
+          "outcome": "completed",
+          "duration_ms": 3929.474,
+          "reported_usage": {
+            "input_tokens": 116,
+            "output_tokens": 610,
+            "total_tokens": 726
+          }
+        }
+      ],
+      "chain_head": "67bda0ec86d0712a6a48c0d6a7e4b9278bcc8c891100250ed6b70d9b6e5aa033"
+    },
+    {
+      "record": 2,
+      "scenario": "human_approval_300",
+      "mode": "meta",
+      "status": "SUCCEEDED",
+      "evidence_verified": true,
+      "expected_outcome_verified": true,
+      "event_counts": {
+        "workflow_created": 1,
+        "model_call": 1,
+        "proposal_validated": 1,
+        "policy_evaluated": 1,
+        "human_approved": 1,
+        "execution_started": 1,
+        "tool_executed": 1
+      },
+      "receipt_count": 1,
+      "simulated_amount_eur": 300.0,
+      "model_calls": [
+        {
+          "outcome": "completed",
+          "duration_ms": 5013.403,
+          "reported_usage": {
+            "input_tokens": 116,
+            "output_tokens": 683,
+            "total_tokens": 799
+          }
+        }
+      ],
+      "chain_head": "60d3ef2cecbdbf5f757237037e1b77d2334f2d2f76f65e3c7ac276c33f8e3884"
+    },
+    {
+      "record": 3,
+      "scenario": "hard_denial_750",
+      "mode": "meta",
+      "status": "DENIED",
+      "evidence_verified": true,
+      "expected_outcome_verified": true,
+      "event_counts": {
+        "workflow_created": 1,
+        "model_call": 1,
+        "policy_evaluated": 1
+      },
+      "receipt_count": 0,
+      "simulated_amount_eur": null,
+      "model_calls": [
+        {
+          "outcome": "completed",
+          "duration_ms": 5435.032,
+          "reported_usage": {
+            "input_tokens": 116,
+            "output_tokens": 732,
+            "total_tokens": 848
+          }
+        }
+      ],
+      "chain_head": "6eb6ef8eb39f302562a75bd2c99d3bbf0f1262a6dde2aa08f47c6b61756ab838"
+    },
+    {
+      "record": 4,
+      "scenario": "clarification",
+      "mode": "meta",
+      "status": "CLARIFICATION_REQUIRED",
+      "evidence_verified": true,
+      "expected_outcome_verified": true,
+      "event_counts": {
+        "workflow_created": 1,
+        "model_call": 1,
+        "policy_evaluated": 1
+      },
+      "receipt_count": 0,
+      "simulated_amount_eur": null,
+      "model_calls": [
+        {
+          "outcome": "completed",
+          "duration_ms": 3200.298,
+          "reported_usage": {
+            "input_tokens": 113,
+            "output_tokens": 482,
+            "total_tokens": 595
+          }
+        }
+      ],
+      "chain_head": "3a7091707589234b2e6cb30339701c0f9c6e11eefdb6c49416d47d65f4023847"
+    }
+  ],
+  "limitations": [
+    "No inference was performed during export.",
+    "Only the four exact scenario texts are classified; other rows are labelled other.",
+    "Raw text, proposals, reviewer labels, workflow IDs, credentials, raw errors and database paths are excluded.",
+    "Chains were verified against local source records. This sanitised summary cannot independently reconstruct them and is not externally signed.",
+    "One observed result per scenario does not establish broad language accuracy, production readiness or a dollar spending cap.",
+    "The original local workflow database remains excluded from Git."
+  ]
+}

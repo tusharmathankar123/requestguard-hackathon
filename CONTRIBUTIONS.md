@@ -174,3 +174,14 @@ The repository is local and has not yet been published.
 - All four core scenarios have now produced their expected outcomes
   with live Meta proposals. This does not establish general language
   accuracy or production readiness.
+
+## Sanitised live evidence export — October 29
+- Added a read-only SQLite exporter with source-chain checks, input binding,
+  policy outcome checks, approval ordering, receipt validation and call counts.
+- Exported four locally verified live workflow summaries with an explicit
+  allowlist excluding raw text, proposals, reviewer labels and credentials.
+- Added four offline tests for redaction, unchanged source storage, tampered
+  chains, mismatched receipts and missing source handling.
+- Updated README to distinguish recorded four-scenario live evidence from
+  general accuracy or production claims. All 69 tests passed.
+- No additional inference calls or allowance changes occurred.

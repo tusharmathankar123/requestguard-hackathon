@@ -31,7 +31,7 @@ Run commands from the repository root.
 
     python3 -m unittest discover -s tests -v
 
-Current verification: 65 tests passed locally, including the new Control Tower tests.
+Current verification: 69 tests passed locally, including Control Tower and evidence export tests.
 
 ## Run the combined evaluation
 
@@ -204,10 +204,12 @@ payment provider with uncertain network outcomes.
 
 ### Meta mode remains opt-in
 
-The new Control Tower is tested with mocked Meta responses, not yet live Meta
-inference. The earlier standalone RequestGuard live result does not verify this
-new workflow. Do not replenish allowances or run paid tests without reviewing
-remaining credits first.
+All four exact Control Tower scenarios have now produced their expected outcomes
+with live Muse Wonder proposals: automatic €125, approved €300, denied €750 and
+clarification. The locally verified, sanitised records are in
+[evidence/live-scenarios.json](evidence/live-scenarios.json). This is recorded
+evidence of one result per scenario, not broad accuracy or production validation.
+Do not replenish allowances or run paid tests without reviewing remaining credits.
 
 Starting with --live requires a server-side MODEL_API_KEY,
 REQUESTGUARD_LIVE_ENABLED=YES and an existing RequestGuard allowance. Every
@@ -239,3 +241,21 @@ Control Tower verification includes four API outcomes, malicious proposals,
 permissions, €250/€500 boundaries, repeated and concurrent approvals, balance
 rechecks, event/input tampering, checkpoint and actual crash recovery, atomic
 rollback, mocked Meta token accounting and HTTP boundary checks.
+
+## Read-only evidence export
+
+    python -m control_tower.export_evidence
+
+Reads local-data/live-control-tower.sqlite using SQLite read-only mode and one
+consistent snapshot. It validates source hash chains, request/proposal binding,
+expected policy decisions, approval ordering, receipt amounts and model-call
+counts. The default output is evidence/live-scenarios.json. Existing output files
+are never overwritten; choose --output with a new filename for a later export.
+The command returns a nonzero exit code if the four scenarios are incomplete.
+
+Only allowlisted summary fields are exported. Customer text, raw proposals,
+reviewer labels, workflow IDs, database paths, credentials and raw errors are
+excluded. The original database stays local and ignored. The summary describes
+verification performed against that source; it cannot independently reconstruct
+the redacted chains and is not externally signed. No model requests or allowance
+changes occur during export. All model-call token counts are provider-reported.
