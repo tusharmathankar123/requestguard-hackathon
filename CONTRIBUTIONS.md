@@ -164,3 +164,13 @@ The repository is local and has not yet been published.
 - Result: SUCCEEDED with one unique €300 simulated receipt.
 - Evidence chain verified; live allowance remained exhausted.
 - Live denial and clarification scenarios remain unverified.
+
+## Live denial and clarification verification — October 29
+- The €750 request was denied by policy, with no approval option
+  and no simulated refund receipt.
+- The ambiguous complaint required an explicit transaction reference
+  and EUR refund amount; its evidence chain verified.
+- The prepared live request allowance was exhausted.
+- All four core scenarios have now produced their expected outcomes
+  with live Meta proposals. This does not establish general language
+  accuracy or production readiness.
