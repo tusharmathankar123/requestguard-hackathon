@@ -156,3 +156,11 @@ The repository is local and has not yet been published.
 - Live request allowance was exhausted after the call.
 - This verifies one live automatic-refund workflow; live approval,
   denial and clarification scenarios remain unverified.
+
+## Live approval verification — October 29
+- Muse Wonder proposed a €300 simulated refund.
+- Independent policy required human approval before execution.
+- Approval resumed the persisted proposal without another model call.
+- Result: SUCCEEDED with one unique €300 simulated receipt.
+- Evidence chain verified; live allowance remained exhausted.
+- Live denial and clarification scenarios remain unverified.
